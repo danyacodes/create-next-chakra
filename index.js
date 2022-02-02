@@ -21,53 +21,13 @@ const {
 
 const cwd = process.cwd()
 
-const FRAMEWORKS = [
-  {
-    name: 'React, Recoil, Router, Tailwind',
-    color: cyan,
-    variants: [
-      {
-        name: 'rrrtv-ts',
-        display: 'TypeScript',
-        color: blue
-      }
-    ]
-  },
-   {
-    name: 'React, Recoil, Router, Chakra',
-    color: cyan,
-    variants: [
-      {
-        name: 'rrrcv-ts',
-        display: 'TypeScript',
-        color: blue
-      }
-    ]
-  },
-  {
-    name: 'Next.js, Chakra',
-    color: cyan,
-    variants: [
-      {
-        name: 'rnc',
-        display: 'JavaScript',
-        color: blue
-      }
-    ]
-  }
-]
-
-const TEMPLATES = FRAMEWORKS.map(
-  (f) => (f.variants && f.variants.map((v) => v.name)) || [f.name]
-).reduce((a, b) => a.concat(b), [])
-
 const renameFiles = {
   _gitignore: '.gitignore'
 }
 
 async function init() {
   let targetDir = argv._[0]
-  let template = argv.template || argv.t
+  //let template = argv.template || argv.t
 
   const defaultProjectName = !targetDir ? 'next-chakra-project' : targetDir
 
@@ -135,7 +95,7 @@ async function init() {
   }
 
   // determine template
-  template = variant || framework || template
+  //template = variant || framework || template
 
   console.log(`\nScaffolding project in ${root}...`)
 
